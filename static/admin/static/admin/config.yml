@@ -1,0 +1,67 @@
+backend:
+  name: git-gateway
+  branch: main
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "home"
+    label: "Startseite"
+    files:
+      - file: "content/_index.md"
+        label: "Onepager"
+        name: "onepager"
+        fields:
+          - {label: "Seitentitel", name: "title", widget: "string"}
+          - {label: "Meta Beschreibung", name: "description", widget: "text"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Überschrift", name: "headline", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
+              - {label: "CTA-Label", name: "cta_label", widget: "string"}
+              - {label: "CTA-Link", name: "cta_url", widget: "string"}
+          - label: "Leistungen"
+            name: "services"
+            widget: "list"
+            fields:
+              - {label: "Titel", name: "title", widget: "string"}
+              - {label: "Beschreibung", name: "text", widget: "text"}
+          - label: "Preise"
+            name: "pricing"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Preis", name: "price", widget: "string"}
+              - {label: "Hinweis", name: "note", widget: "string", required: false}
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            fields:
+              - {label: "Frage", name: "q", widget: "string"}
+              - {label: "Antwort", name: "a", widget: "text"}
+          - label: "Kontakt"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {label: "Telefon (tel:…)", name: "phone", widget: "string"}
+              - {label: "E-Mail", name: "email", widget: "string"}
+              - {label: "Adresse", name: "address", widget: "text"}
+              - {label: "Öffnungszeiten", name: "hours", widget: "text"}
+
+  - name: "pages"
+    label: "Recht & Seiten"
+    files:
+      - file: "content/impressum.md"
+        label: "Impressum"
+        name: "impressum"
+        fields:
+          - {label: "Titel", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "content/datenschutz.md"
+        label: "Datenschutz"
+        name: "datenschutz"
+        fields:
+          - {label: "Titel", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
